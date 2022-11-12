@@ -1,0 +1,29 @@
+###
+GET http://localhost:3000/todos
+
+
+###
+DELETE  http://localhost:3000/todos/2/
+
+
+###
+POST  http://localhost:3000/todos/create
+Content-Type: application/json
+
+{
+    "id":"6",
+    "userName":"kalyan",
+    "task":"create new app",
+    "isChecked":"false"
+}
+
+###
+PUT  http://localhost:3000/todos/5
+Content-Type: application/json
+
+{
+    "id":"6",
+    "userName":"kiran",
+    "task":"learn JavaScript",
+    "isChecked":"true"
+}
