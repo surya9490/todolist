@@ -36,7 +36,7 @@ app.get("/todos", async (request, response) => {
     SELECT 
         *
     FROM 
-         todo;`;
+         todos;`;
 
   const todoData = await database.all(getTodosList);
   const data = response.send(todoData);
@@ -48,7 +48,7 @@ app.delete("/todos/:id/", async (request, response) => {
   const { id } = request.params;
   const deleteTodosList = `
     DELETE FROM
-        todo
+        todos
     WHERE 
         id = ${id};`;
 
@@ -59,12 +59,12 @@ app.delete("/todos/:id/", async (request, response) => {
 /// api post
 
 app.post("/todos/create", async (request, response) => {
-  const { id, userName, task, isChecked } = request.body;
+  const { userName, task, isChecked } = request.body;
   const postTodosList = `
     INSERT INTO
-        todo(id,user_name,task,is_checked)
+        todos(user_name,task,is_checked)
     VALUES
-        (${id},'${userName}','${task}','${isChecked}');`;
+        ('${userName}','${task}','${isChecked}');`;
 
   const todoData = await database.run(postTodosList);
   const data = response.send("todos updated");
@@ -78,7 +78,7 @@ app.put("/todos/:id", async (request, response) => {
   console.log(id);
   const putTodosList = `
     UPDATE 
-        todo
+        todos
     SET
         user_name='${userName}',
         task='${task}',

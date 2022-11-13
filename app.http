@@ -11,9 +11,8 @@ POST  http://localhost:3000/todos/create
 Content-Type: application/json
 
 {
-    "id":"6",
     "userName":"kalyan",
-    "task":"create new app",
+    "task":"Learn Python",
     "isChecked":"false"
 }
 
