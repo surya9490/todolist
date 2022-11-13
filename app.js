@@ -57,7 +57,6 @@ app.delete("/todos/:id/", async (request, response) => {
 /// api post
 
 app.post("/todos/create", async (request, response) => {
-  console.log(request.body);
   const { id, userName, task, isChecked } = request.body;
   const postTodosList = `
     INSERT INTO
@@ -87,3 +86,5 @@ app.put("/todos/:id", async (request, response) => {
   const todoData = await database.run(putTodosList);
   response.send("Updated successfully");
 });
+
+module.exports = app;
